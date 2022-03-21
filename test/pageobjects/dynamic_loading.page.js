@@ -13,12 +13,25 @@ class DynamicLoadingPage extends Page {
   /**
    * overwrite specific options to adapt it to page object
    */
+  get remember(){return $('#rememberMe')}
    async Click(path,element) {
      await this.open(path);
 
       await $(element).click();
       //await $(element).waitForDisplayed({ timeout: 5000, reverse : true });
   }
+  async checking(path,element,text) {
+    it(text, async () => {
+
+      await this.open(path,element)
+      await browser.pause(2000);
+      await $(element).click();
+      await browser.pause(2000);
+      await expect($(element)).toBeChecked()
+             
+  });
+
+ }
   async login (path,inputus,inputpass,but,username, password,text,elementexpected) {
     it(text, async () => {
       this.open(path)

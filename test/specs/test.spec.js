@@ -8,12 +8,48 @@ var test=[{path:"replicated/account/logon/", element:'#userName',text: 'User nam
 
 describe('My Login application', () => {
     
+    
+    
     for(var i=0;i<test.length;i++){
     	  DynamicLoadingPage.exist(test[i]);}
-  
+          
+          
+          
 		
     //DynamicLoadingPage.login('replicated/account/logon','#userName','#userPassword',"#btnFormSubmit", "jgroening@yahoo.com", "Surfingyoga24-",'Blank password', "#profileImg" )
-	DynamicLoadingPage.login('replicated/account/logon','#userName','#userPassword',"#btnFormSubmit", "jgroening@yahoo.com", " ",'Blank password', '.errorDv')
+	//DynamicLoadingPage.login('replicated/account/logon','#userName','#userPassword',"#btnFormSubmit", "jgroening@yahoo.com", " ",'Blank password', '.errorDv')
+	
+    
+            
 		  
+});
+
+describe('Checking', () => {
+    
+    
+
+
+        
+       
+               
+        
+        DynamicLoadingPage.checking("replicated/account/logon","#rememberMe", "remember is selected")
+          
+          
+          xit('Checkbox selected', async () => {
+
+            DynamicLoadingPage.open("replicated/account/logon")
+            await browser.pause(2000);
+            await DynamicLoadingPage.remember.click();
+            await browser.pause(2000);
+            await expect(DynamicLoadingPage.remember).toBeChecked()
+                   
+        });
+		
+    //DynamicLoadingPage.login('replicated/account/logon','#userName','#userPassword',"#btnFormSubmit", "jgroening@yahoo.com", "Surfingyoga24-",'Blank password', "#profileImg" )
+	//DynamicLoadingPage.login('replicated/account/logon','#userName','#userPassword',"#btnFormSubmit", "jgroening@yahoo.com", " ",'Blank password', '.errorDv')
+	
+    
+            
 		  
 });
